@@ -159,19 +159,7 @@ CMD ["npm", "start"]
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abrir Pull Request
 
-## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
-
-## 👨‍💻 Autor
-
-**Miguel Ochoa**
+**Alexander Miguel Chang Cruz**
 - GitHub: [@miguelotech](https://github.com/miguelotech)
 
-## 🙏 Agradecimientos
-
-- [Next.js](https://nextjs.org/) - Framework React
-- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS
-- [Shadcn/UI](https://ui.shadcn.com/) - Componentes UI
-- [Lucide](https://lucide.dev/) - Iconos
-- [Zod](https://zod.dev/) - Validación de esquemas
