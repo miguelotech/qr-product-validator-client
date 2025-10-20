@@ -94,7 +94,7 @@ export default function ValidationPage() {
             {batch.product.image && (
               <div className="flex justify-center">
                 <img
-                  src={batch.product.image || "/placeholder.svg"}
+                  src={imageUtils.getProductImageUrl(batch.product)}
                   alt={batch.product.name}
                   className="w-48 h-48 object-cover rounded-lg shadow-lg"
                 />

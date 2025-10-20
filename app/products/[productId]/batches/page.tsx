@@ -6,7 +6,7 @@ import { Navigation } from "@/components/navigation"
 import { BatchForm } from "@/components/batch-form"
 import { BatchCard } from "@/components/batch-card"
 import { Button } from "@/components/ui/button"
-import { productsApi, batchesApi, type Product, type ProductBatch } from "@/lib/api"
+import { productsApi, batchesApi, imageUtils, type Product, type ProductBatch } from "@/lib/api"
 import type { BatchFormData } from "@/lib/validation"
 import { Plus, AlertCircle, Loader, ArrowLeft } from "lucide-react"
 
@@ -102,7 +102,7 @@ export default function BatchesPage() {
             <div className="flex items-start gap-4">
               {product.image && (
                 <img
-                  src={product.image || "/placeholder.svg"}
+                  src={imageUtils.getProductImageUrl(product)}
                   alt={product.name}
                   className="w-24 h-24 object-cover rounded"
                 />

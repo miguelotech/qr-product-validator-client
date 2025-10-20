@@ -92,14 +92,6 @@ La aplicación se conecta a un backend API en `http://localhost:8081`:
 - `/products/[id]/batches` - Gestión de lotes de un producto
 - `/validate/[batchId]` - Validación pública de lote
 
-## 🎨 Características de UI/UX
-
-- **Diseño Responsivo**: Mobile-first con Tailwind CSS
-- **Componentes Accesibles**: Implementados con Radix UI
-- **Tema Oscuro/Claro**: Soporte para temas (configurable)
-- **Validación en Tiempo Real**: Formularios con validación instantánea
-- **Estados de Carga**: Indicadores visuales durante operaciones
-
 ## 🔧 Configuración
 
 ### Variables de Entorno
@@ -162,4 +154,3 @@ CMD ["npm", "start"]
 
 **Alexander Miguel Chang Cruz**
 - GitHub: [@miguelotech](https://github.com/miguelotech)
-
