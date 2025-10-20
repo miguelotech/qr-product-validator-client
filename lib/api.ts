@@ -1,5 +1,5 @@
 // API utilities for communicating with the backend
-const API_BASE_URL = "http://localhost:8081"
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8081"
 
 // Helper function to build full image URLs
 const buildImageUrl = (path: string | null | undefined): string => {

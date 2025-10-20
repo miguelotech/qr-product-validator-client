@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+const backendUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8081'
+const backend = new URL(backendUrl)
+
 const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
@@ -7,20 +10,23 @@ const nextConfig = {
     unoptimized: true,
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '8081',
+        protocol: backend.protocol.replace(':', ''),
+        hostname: backend.hostname,
+        port: backend.port || undefined,
         pathname: '/uploads/**',
       },
     ],
   },
   async rewrites() {
-    return [
-      {
-        source: '/uploads/:path*',
-        destination: 'http://localhost:8081/uploads/:path*',
-      },
-    ]
+    if (process.env.NODE_ENV === 'development') {
+      return [
+        {
+          source: '/uploads/:path*',
+          destination: `${backend.origin}/uploads/:path*`,
+        },
+      ]
+    }
+    return []
   },
 }
 
