@@ -5,7 +5,11 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8081"
 const buildImageUrl = (path: string | null | undefined): string => {
   if (!path) return "/placeholder.svg"
   if (path.startsWith("http")) return path
-  return `${API_BASE_URL}${path}`
+
+  // Ensure API_BASE_URL has no trailing slash and path has a leading slash
+  const base = API_BASE_URL.replace(/\/+$/, "")
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`
+  return `${base}${normalizedPath}`
 }
 
 export interface Product {

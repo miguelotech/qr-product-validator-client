@@ -25,6 +25,11 @@ export default function ProductsPage() {
     try {
       setIsLoading(true)
       const data = await productsApi.getAll()
+      console.debug("[ProductsPage] loaded products:", data)
+      console.debug(
+        "[ProductsPage] product image fields:",
+        data.map((p: Product) => ({ id: p.id, image: p.image }))
+      )
       setProducts(data)
       setError("")
     } catch (err) {
