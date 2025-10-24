@@ -5,7 +5,7 @@ import { useParams } from "next/navigation"
 import { validationApi, type ProductBatch, imageUtils, dateUtils } from "@/lib/api"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { AlertCircle, Loader, Download, CheckCircle, XCircle } from "lucide-react"
+import { AlertCircle, Loader, Download, CheckCircle, XCircle, Hash, Tag, Calendar } from "lucide-react"
 
 export default function ValidationPage() {
   const params = useParams()
@@ -68,7 +68,7 @@ export default function ValidationPage() {
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-2">Validación de Producto</h1>
-          <p className="text-muted-foreground">Información verificada del producto</p>
+          <p className="text-muted-foreground">Información verificada</p>
         </div>
 
         <Card className="overflow-hidden">
@@ -90,6 +90,19 @@ export default function ValidationPage() {
           </div>
 
           <div className="p-8 space-y-8">
+            {/* Brand: logo + name */}
+            <div className="flex items-center justify-center gap-4">
+              <img
+                src="/logo.png"
+                alt="Molino El Cholo"
+                className="w-20 h-20 object-contain rounded"
+              />
+              <div className="text-center">
+                <h3 className="text-xl font-bold">Molino El Cholo</h3>
+                <p className="text-sm text-muted-foreground">Calidad desde Guadalupe</p>
+              </div>
+            </div>
+
             {/* Product Image */}
             {batch.product.image && (
               <div className="flex justify-center">
@@ -111,25 +124,51 @@ export default function ValidationPage() {
               </div>
             </div>
 
-            {/* Batch Details */}
-            <div className="grid grid-cols-2 gap-6 bg-muted p-6 rounded-lg">
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Número de Maquilla</p>
-                <p className="font-semibold text-lg">{batch.numeroMaquilla}</p>
+            {/* Batch Details (beautiful card row) */}
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+              {/* Maquilla */}
+              <div className="flex flex-col items-center text-center p-5 bg-gradient-to-br from-white/60 to-muted/5 border border-border rounded-2xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3 bg-gradient-to-br from-amber-400 to-amber-600 text-white">
+                  <Hash className="w-5 h-5" />
+                </div>
+                <p className="text-xs uppercase text-muted-foreground tracking-wide">Número de Maquilla</p>
+                <p className="mt-1 text-xl font-extrabold">{batch.numeroMaquilla}</p>
               </div>
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Variedad</p>
-                <p className="font-semibold text-lg">{batch.variedadArroz}</p>
+
+              {/* Variedad */}
+              <div className="flex flex-col items-center text-center p-5 bg-gradient-to-br from-white/60 to-muted/5 border border-border rounded-2xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3 bg-gradient-to-br from-sky-400 to-sky-600 text-white">
+                  <Tag className="w-5 h-5" />
+                </div>
+                <p className="text-xs uppercase text-muted-foreground tracking-wide">Variedad</p>
+                <p className="mt-1 text-xl font-extrabold">{batch.variedadArroz}</p>
               </div>
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Fecha de Producción</p>
-                <p className="font-semibold text-lg">{dateUtils.formatDate(batch.fechaProduccion)}</p>
+
+              {/* Fecha Producción */}
+              <div className="flex flex-col items-center text-center p-5 bg-gradient-to-br from-white/60 to-muted/5 border border-border rounded-2xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3 bg-gradient-to-br from-sky-300 to-sky-500 text-white">
+                  <Calendar className="w-5 h-5" />
+                </div>
+                <p className="text-xs uppercase text-muted-foreground tracking-wide">Fecha de Producción</p>
+                <p className="mt-1 text-xl font-extrabold">{dateUtils.formatDate(batch.fechaProduccion)}</p>
               </div>
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Fecha de Vencimiento</p>
-                <p className={`font-semibold text-lg ${isExpired ? "text-destructive" : "text-green-600"}`}>
-                  {dateUtils.formatDate(batch.fechaVencimiento)}
-                </p>
+
+              {/* Fecha Vencimiento */}
+              <div className="flex flex-col items-center text-center p-5 border rounded-2xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition"
+                aria-live="polite"
+              >
+                <div className={`${isExpired ? 'w-12 h-12 rounded-full flex items-center justify-center mb-3 bg-gradient-to-br from-red-400 to-red-600 text-white' : 'w-12 h-12 rounded-full flex items-center justify-center mb-3 bg-gradient-to-br from-emerald-400 to-emerald-600 text-white'}`}>
+                  <Calendar className="w-5 h-5" />
+                </div>
+                <p className="text-xs uppercase text-muted-foreground tracking-wide">Fecha de Vencimiento</p>
+                <p className={`mt-1 text-xl font-extrabold ${isExpired ? 'text-destructive' : 'text-emerald-600'}`}>{dateUtils.formatDate(batch.fechaVencimiento)}</p>
+                <div className="mt-2">
+                  {isExpired ? (
+                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-destructive/10 text-destructive text-xs">Vencido</span>
+                  ) : (
+                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-600 text-xs">Vigente</span>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -146,10 +185,15 @@ export default function ValidationPage() {
               </div>
             )}
 
-            {/* Footer */}
-            <div className="text-center text-sm text-muted-foreground border-t border-border pt-6">
-              <p>Este producto ha sido verificado y validado por nuestro sistema</p>
-              <p className="mt-2">ID del Lote: {batch.id}</p>
+            {/* Footer: company/contact info instead of batch id */}
+            <div className="text-center text-sm text-muted-foreground border-t border-border pt-6 space-y-1 font-semibold">
+              <p className="font-semibold">Procesado y envasado por:</p>
+              <p>Mi Molino S.A.C.</p>
+              <p>R.U.C. 20440442189</p>
+              <p>Panamericana Norte Km. 694</p>
+              <p>ahora hito Km. 707 - Guadalupe</p>
+              <p>Ventas: 949445982 - 976683414</p>
+              <p>Guadalupe - Perú</p>
             </div>
           </div>
         </Card>

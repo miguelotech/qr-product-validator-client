@@ -32,6 +32,9 @@ export interface ProductBatch {
 export interface CreateProductInput {
   name: string
   registroSanitario: string
+  // Optional existing image path/url. When updating without a new file,
+  // send the current image so the backend doesn't clear it.
+  image?: string
 }
 
 export interface CreateBatchInput {
@@ -177,7 +180,7 @@ export const dateUtils = {
     }
     return new Date(dateString)
   },
-  
+
   // Format date for display
   formatDate: (dateString: string): string => {
     const date = dateUtils.parseDate(dateString)
@@ -187,13 +190,13 @@ export const dateUtils = {
       day: '2-digit'
     })
   },
-  
+
   // Format date for input fields (YYYY-MM-DD)
   formatDateForInput: (dateString: string): string => {
     const date = dateUtils.parseDate(dateString)
     return date.toISOString().split('T')[0]
   },
-  
+
   // Check if date is expired
   isExpired: (dateString: string): boolean => {
     const date = dateUtils.parseDate(dateString)

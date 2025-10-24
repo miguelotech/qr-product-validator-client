@@ -4,7 +4,7 @@ import type { ProductBatch } from "@/lib/api"
 import { imageUtils, dateUtils } from "@/lib/api"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Edit2, Trash2, Download } from "lucide-react"
+import { Edit2, Trash2, Download, Eye } from "lucide-react"
 import { useState } from "react"
 
 interface BatchCardProps {
@@ -63,7 +63,7 @@ export function BatchCard({ batch, onEdit, onDelete }: BatchCardProps) {
         </Button>
         {batch.qrCodeUrl && (
           <Button variant="outline" size="sm" onClick={downloadQR} className="flex-1 bg-transparent">
-            <Download className="w-4 h-4 mr-1" />
+            <Eye className="w-4 h-4 mr-1" />
             QR
           </Button>
         )}

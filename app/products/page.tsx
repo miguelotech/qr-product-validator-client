@@ -43,7 +43,10 @@ export default function ProductsPage() {
     try {
       setIsSubmitting(true)
       if (editingProduct) {
-        await productsApi.update(editingProduct.id, data, image)
+        // If no new image file was provided, include the existing image path
+        // so the backend won't clear it when updating.
+        const payload = image ? data : { ...data, image: editingProduct.image }
+        await productsApi.update(editingProduct.id, payload, image)
       } else {
         await productsApi.create(data, image)
       }

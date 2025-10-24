@@ -94,7 +94,7 @@ export default function BatchesPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Button variant="ghost" onClick={() => router.push("/products")} className="mb-6">
           <ArrowLeft className="w-4 h-4 mr-2" />
-          Volver a Productos
+          Volver a Variedades
         </Button>
 
         {product && (
@@ -117,8 +117,8 @@ export default function BatchesPage() {
 
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-2xl font-bold">Lotes</h2>
-            <p className="text-muted-foreground mt-1">Gestiona los lotes de este producto</p>
+            <h2 className="text-2xl font-bold">Maquilla</h2>
+            <p className="text-muted-foreground mt-1">Gestiona las maquillas</p>
           </div>
           <Button
             onClick={() => {
@@ -128,7 +128,7 @@ export default function BatchesPage() {
             size="lg"
           >
             <Plus className="w-5 h-5 mr-2" />
-            Nuevo Lote
+            Añadir Maquilla
           </Button>
         </div>
 
@@ -160,8 +160,8 @@ export default function BatchesPage() {
 
         {batches.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-muted-foreground text-lg">No hay lotes aún</p>
-            <p className="text-muted-foreground text-sm">Crea tu primer lote para comenzar</p>
+            <p className="text-muted-foreground text-lg">No hay Maquillas aún</p>
+            <p className="text-muted-foreground text-sm">Crea tu primer maquilla para comenzar</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

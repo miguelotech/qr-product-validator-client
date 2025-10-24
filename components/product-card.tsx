@@ -42,7 +42,7 @@ export function ProductCard({ product, onEdit, onDelete }: ProductCardProps) {
         </div>
         <Link href={`/products/${product.id}/batches`}>
           <Button variant="default" size="sm" className="w-full">
-            Ver Lotes
+            Ver Maquillas
           </Button>
         </Link>
       </div>
