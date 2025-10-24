@@ -70,7 +70,7 @@ export function ProductForm({ product, onSubmit, isLoading }: ProductFormProps) 
     <Card className="p-6">
       <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
         <div>
-          <label className="block text-sm font-medium mb-2">Nombre del Producto</label>
+          <label className="block text-sm font-medium mb-2">Nombre</label>
           <Input
             {...register("name")}
             placeholder="Ej: Arroz Integral Premium"
@@ -100,7 +100,7 @@ export function ProductForm({ product, onSubmit, isLoading }: ProductFormProps) 
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-2">Imagen del Producto</label>
+          <label className="block text-sm font-medium mb-2">Añade Imagen (OJO: recuerda actualizar la foto siempre que actualices.)</label>
           <div className="border-2 border-dashed border-border rounded-lg p-6 text-center cursor-pointer hover:border-primary transition-colors">
             <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" id="image-input" />
             <label htmlFor="image-input" className="cursor-pointer">
@@ -132,7 +132,7 @@ export function ProductForm({ product, onSubmit, isLoading }: ProductFormProps) 
         )}
 
         <Button type="submit" disabled={isLoading} className="w-full">
-          {isLoading ? "Guardando..." : product ? "Actualizar Producto" : "Crear Producto"}
+          {isLoading ? "Guardando..." : product ? "Actualizar Variedad" : "Crear Variedad"}
         </Button>
       </form>
     </Card>

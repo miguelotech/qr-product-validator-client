@@ -15,20 +15,9 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-              <Package className="w-6 h-6" />
-              <span>Gestión de Productos</span>
+              <img src="/logo.png" alt="Molino el Cholo logo" className=" w-6 h-6"/>
+              <span>Molino el Cholo</span>
             </Link>
-            <div className="flex gap-6">
-              <Link
-                href="/products"
-                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isActive("/products") ? "bg-primary text-primary-foreground" : "text-foreground hover:bg-muted"
-                }`}
-              >
-                <Package className="w-4 h-4" />
-                Productos
-              </Link>
-            </div>
           </div>
         </div>
       </div>

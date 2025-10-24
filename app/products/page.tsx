@@ -78,8 +78,8 @@ export default function ProductsPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold">Gestión de Productos</h1>
-            <p className="text-muted-foreground mt-1">Administra tu catálogo de productos</p>
+            <h1 className="text-3xl font-bold"> Catálogo</h1>
+            <p className="text-muted-foreground mt-1">Elige la variedad de arroz</p>
           </div>
           <Button
             onClick={() => {
@@ -89,7 +89,7 @@ export default function ProductsPage() {
             size="lg"
           >
             <Plus className="w-5 h-5 mr-2" />
-            Nuevo Producto
+            Añadir
           </Button>
         </div>
 
@@ -112,8 +112,8 @@ export default function ProductsPage() {
           </div>
         ) : products.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-muted-foreground text-lg">No hay productos aún</p>
-            <p className="text-muted-foreground text-sm">Crea tu primer producto para comenzar</p>
+            <p className="text-muted-foreground text-lg">No hay variedad de arroz creados aún.</p>
+            <p className="text-muted-foreground text-sm">Añade el primero para comenzar...</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

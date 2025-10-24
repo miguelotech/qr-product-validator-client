@@ -7,7 +7,8 @@ import "./globals.css"
 const _inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Gestión de Productos QR",
+  title: "Molino El Cholo - Guadalupe",
+  icons: "/logo.png",
   description: "Sistema de gestión de productos con validación mediante códigos QR",
   generator: "v0.app",
 }
