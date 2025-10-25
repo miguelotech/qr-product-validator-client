@@ -100,7 +100,7 @@ export function ProductForm({ product, onSubmit, isLoading }: ProductFormProps) 
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-2">Añade Imagen (OJO: recuerda actualizar la foto siempre que actualices.)</label>
+          <label className="block text-sm font-medium mb-2">Añade Imagen</label>
           <div className="border-2 border-dashed border-border rounded-lg p-6 text-center cursor-pointer hover:border-primary transition-colors">
             <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" id="image-input" />
             <label htmlFor="image-input" className="cursor-pointer">

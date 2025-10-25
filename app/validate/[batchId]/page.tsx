@@ -125,9 +125,9 @@ export default function ValidationPage() {
             </div>
 
             {/* Batch Details (beautiful card row) */}
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               {/* Maquilla */}
-              <div className="flex flex-col items-center text-center p-5 bg-gradient-to-br from-white/60 to-muted/5 border border-border rounded-2xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition">
+              <div className="flex flex-col items-center text-center p-5 bg-gradient-to-br from-white/60 to-muted/5 border border-border rounded-2xl shadow-md md:hover:shadow-lg md:transform md:hover:-translate-y-0.5 transition-all relative w-full break-words">
                 <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3 bg-gradient-to-br from-amber-400 to-amber-600 text-white">
                   <Hash className="w-5 h-5" />
                 </div>
@@ -136,7 +136,7 @@ export default function ValidationPage() {
               </div>
 
               {/* Variedad */}
-              <div className="flex flex-col items-center text-center p-5 bg-gradient-to-br from-white/60 to-muted/5 border border-border rounded-2xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition">
+              <div className="flex flex-col items-center text-center p-5 bg-gradient-to-br from-white/60 to-muted/5 border border-border rounded-2xl shadow-md md:hover:shadow-lg md:transform md:hover:-translate-y-0.5 transition-all relative w-full break-words">
                 <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3 bg-gradient-to-br from-sky-400 to-sky-600 text-white">
                   <Tag className="w-5 h-5" />
                 </div>
@@ -145,7 +145,7 @@ export default function ValidationPage() {
               </div>
 
               {/* Fecha Producción */}
-              <div className="flex flex-col items-center text-center p-5 bg-gradient-to-br from-white/60 to-muted/5 border border-border rounded-2xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition">
+              <div className="flex flex-col items-center text-center p-5 bg-gradient-to-br from-white/60 to-muted/5 border border-border rounded-2xl shadow-md md:hover:shadow-lg md:transform md:hover:-translate-y-0.5 transition-all relative w-full break-words">
                 <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3 bg-gradient-to-br from-sky-300 to-sky-500 text-white">
                   <Calendar className="w-5 h-5" />
                 </div>
@@ -154,7 +154,7 @@ export default function ValidationPage() {
               </div>
 
               {/* Fecha Vencimiento */}
-              <div className="flex flex-col items-center text-center p-5 border rounded-2xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition"
+              <div className="flex flex-col items-center text-center p-5 border rounded-2xl shadow-md md:hover:shadow-lg md:transform md:hover:-translate-y-0.5 transition-all relative w-full break-words"
                 aria-live="polite"
               >
                 <div className={`${isExpired ? 'w-12 h-12 rounded-full flex items-center justify-center mb-3 bg-gradient-to-br from-red-400 to-red-600 text-white' : 'w-12 h-12 rounded-full flex items-center justify-center mb-3 bg-gradient-to-br from-emerald-400 to-emerald-600 text-white'}`}>
