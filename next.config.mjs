@@ -15,17 +15,14 @@ const nextConfig = {
         port: backend.port || undefined,
         pathname: '/uploads/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/**',
+      },
     ],
   },
   async rewrites() {
-    if (process.env.NODE_ENV === 'development') {
-      return [
-        {
-          source: '/uploads/:path*',
-          destination: `${backend.origin}/uploads/:path*`,
-        },
-      ]
-    }
     return []
   },
 }

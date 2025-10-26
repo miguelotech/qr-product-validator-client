@@ -1,15 +1,11 @@
 // API utilities for communicating with the backend
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8081"
 
-// Helper function to build full image URLs
+// Helper function to handle image URLs
 const buildImageUrl = (path: string | null | undefined): string => {
   if (!path) return "/placeholder.svg"
-  if (path.startsWith("http")) return path
-
-  // Ensure API_BASE_URL has no trailing slash and path has a leading slash
-  const base = API_BASE_URL.replace(/\/+$/, "")
-  const normalizedPath = path.startsWith("/") ? path : `/${path}`
-  return `${base}${normalizedPath}`
+  // Since we're using Cloudinary, URLs will always be complete
+  return path
 }
 
 export interface Product {
